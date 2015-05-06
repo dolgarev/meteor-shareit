@@ -1,0 +1,7 @@
+<template name="shareit">
+<div class="share-buttons">
+  {{#each siteTemplates}}
+    {{> Template.dynamic template=this data=..}}
+  {{/each}}
+</div>
+</template>
