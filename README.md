@@ -13,7 +13,7 @@ I've built social sharing buttons a few times and decided it was time to extract
 
 ## Quick Start
 
-    meteor add liberation:share-it
+    meteor add liberation:shareit
 
 ## Usage
 
