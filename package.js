@@ -1,14 +1,14 @@
 Package.describe({
   summary: 'A meteor package that makes social sharing easy',
   git: 'https://github.com/dolgarev/meteor-shareit',
-  version: '1.0.0',
+  version: '1.0.1',
   name: "liberation:shareit"
 });
 
 Package.onUse(function(api) {
   api.versionsFrom("METEOR@1.0");
   api.use(['coffeescript', 'templating', 'underscore', 'jquery'], 'client');
-  api.use(['fortawesome:fontawesome'], 'client');
+  api.use(['fortawesome:fontawesome@4.2.0'], 'client');
 
   api.imply('spiderable', ['client', 'server']);
   api.addFiles([
