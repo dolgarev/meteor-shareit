@@ -1,21 +1,21 @@
 Package.describe({
   summary: 'A meteor package that makes social sharing easy',
-  git: 'https://github.com/meteorclub/shareit',
-  version: '0.4.1',
-  name: "lovetostrike:shareit"
+  git: 'https://github.com/dolgarev/meteor-shareit',
+  version: '1.0.0',
+  name: "liberation:shareit"
 });
 
 Package.onUse(function(api) {
   api.versionsFrom("METEOR@1.0");
-  api.use(['coffeescript', 'less', 'templating', 'underscore', 'jquery'], 'client');
-  api.use(['fortawesome:fontawesome@4.2.0'], 'client');
+  api.use(['coffeescript', 'templating', 'underscore', 'jquery'], 'client');
+  api.use(['fortawesome:fontawesome'], 'client');
 
   api.imply('spiderable', ['client', 'server']);
   api.addFiles([
     'shareit.coffee',
     'client/views/social.html',
     'client/views/social.coffee',
-    'client/views/social.less',
+    'client/views/social.css',
     'client/views/facebook/facebook.html',
     'client/views/facebook/facebook.coffee',
     'client/views/twitter/twitter.html',
@@ -29,16 +29,16 @@ Package.onUse(function(api) {
   api.export('ShareIt', 'client');
 });
 
-Package.onTest(function (api) {
-  api.use(['tinytest',
-    'test-helpers',
-    'templating',
-    'coffeescript'
-    ])
-    api.use('joshowens:shareit')
+// Package.onTest(function (api) {
+//   api.use(['tinytest',
+//     'test-helpers',
+//     'templating',
+//     'coffeescript'
+//     ])
+//     api.use('joshowens:shareit')
 
-  api.addFiles([
-    'tests/client.html',
-    'tests/client.js'
-    ], 'client')
-})
+//   api.addFiles([
+//     'tests/client.html',
+//     'tests/client.js'
+//     ], 'client')
+// })

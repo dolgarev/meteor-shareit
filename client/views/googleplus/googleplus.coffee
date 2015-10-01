@@ -1,4 +1,4 @@
-Template.shareit_googleplus.rendered = () ->
+Template.shareit_googleplus.onRendered ->
   return unless @data
 
   @autorun ->

@@ -1,4 +1,4 @@
-Template.shareit_pinterest.rendered = ->
+Template.shareit_pinterest.onRendered ->
   return unless @data
 
   @autorun ->

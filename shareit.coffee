@@ -1,19 +1,29 @@
+script_loader = (url, id, d = document) ->
+  unless d.getElementById id
+    fjs = d.getElementsByTagName('script')[0]
+    js = d.createElement 'script'
+    js.async = true
+    js.id = id
+    js.src = url
+    fjs.parentNode.insertBefore js, fjs
+
+
 ShareIt =
   settings:
     autoInit: true
     buttons: 'responsive'
     sites:
-      'facebook':
+      facebook:
         'appId': null
         'version': 'v2.3'
         'description': ''
-      'twitter':
+      twitter:
         'description': ''
-      'googleplus':
+      googleplus:
         'description': ''
-      'pinterest':
+      pinterest:
         'description': ''
-      'instagram':
+      instagram:
         'description': ''
     siteOrder: []
     classes: "large btn"
@@ -22,43 +32,26 @@ ShareIt =
     faClass: ''
     applyColors: true
 
-  configure: (hash) ->
-    $.extend true, @settings, hash
+  configure: (params) ->
+    $.extend true, @settings, params if params?
 
   helpers:
-    classes: ->
-      ShareIt.settings.classes
-    showText: ->
-      not ShareIt.settings.iconOnly
-    applyColors: ->
-      ShareIt.settings.applyColors
-    faSize: ->
-      ShareIt.settings.faSize
-    faClass: ->
-      ShareIt.settings.faClass and "-#{ShareIt.settings.faClass}" or ""
+    classes: -> ShareIt.settings.classes
+    showText: -> not ShareIt.settings.iconOnly
+    applyColors: -> ShareIt.settings.applyColors
+    faSize: -> ShareIt.settings.faSize
+    faClass: -> ShareIt.settings.faClass and "-#{ShareIt.settings.faClass}" or ''
 
-@ShareIt = ShareIt
+  init: (params) ->
+    @configure params if params?
 
-ShareIt.init = (hash) ->
-  @configure hash if hash?
+    # Twitter    
+    script_loader '//platform.twitter.com/widgets.js', 'twitter-wjs'
 
-  script_loader = (url, id, d = document) ->
-    unless d.getElementById id
-      fjs = d.getElementsByTagName('script')[0]
-      js = d.createElement 'script'
-      js.async = true
-      js.id = id
-      js.src = url
-      fjs.parentNode.insertBefore js, fjs
-
-  # Twitter    
-  script_loader '//platform.twitter.com/widgets.js', 'twitter-wjs'
-
-  # Facebook
-  $('<div id="fb-root"></div>').appendTo 'body' unless $('#fb-root').length
-  if ShareIt.settings.autoInit
-    window.fbAsyncInit = ->
-      if ShareIt.settings.sites?.facebook
-        FB.init ShareIt.settings.sites.facebook
-
-  script_loader '//connect.facebook.net/en_US/sdk.js', 'facebook-jssdk'
+    # Facebook
+    if @settings.autoInit and @settings.sites.facebook?
+      window.fbAsyncInit = =>
+        FB.init @settings.sites.facebook
+          
+    $('<div id="fb-root"></div>').appendTo 'body' unless $('#fb-root').get(0)?  
+    script_loader '//connect.facebook.net/en_US/sdk.js', 'facebook-jssdk'

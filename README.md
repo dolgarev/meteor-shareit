@@ -1,16 +1,17 @@
 # Share it
 
-I've built social sharing buttons a few times and decided it was time to extract it to a package!  The goal of this package is to do a few things:
+This package is based on packages [joshowens:shareit](https://atmospherejs.com/joshowens/shareit) and [lovetostrike:shareit](https://atmospherejs.com/lovetostrike/shareit). It containes some bugfixes for Facebook and Twitter.
+
+
+I've built social sharing buttons a few times and decided it was time to extract it to a package! The goal of this package is to do a few things:
 
 * Render appropriate meta tags for Facebook/OG and Twitter (via spiderable)
 * Support social sharing buttons with bootstrap-3 (default) and font-awesome
 * Expand to support other social platforms besides just twitter & facebook, in a configurable way
 
-See also our [project home](http://meteorjs.club/shareit/) (WIP).
-
 ## Quick Start
 
-    meteor add joshowens:shareit
+    meteor add liberation:share-it
 
 ## Usage
 
