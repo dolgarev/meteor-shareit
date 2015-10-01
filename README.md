@@ -2,6 +2,8 @@
 
 This package is based on packages [joshowens:shareit](https://atmospherejs.com/joshowens/shareit) and [lovetostrike:shareit](https://atmospherejs.com/lovetostrike/shareit). It containes some bugfixes for Facebook and Twitter.
 
+The package is compatible with Meteor 1.2.
+
 
 I've built social sharing buttons a few times and decided it was time to extract it to a package! The goal of this package is to do a few things:
 
