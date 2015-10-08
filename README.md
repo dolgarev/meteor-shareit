@@ -1,4 +1,4 @@
-# Share it
+# Share It
 
 This package is based on packages [joshowens:shareit](https://atmospherejs.com/joshowens/shareit) and [lovetostrike:shareit](https://atmospherejs.com/lovetostrike/shareit). It containes some bugfixes for Facebook and Twitter.
 
