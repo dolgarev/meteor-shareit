@@ -17,14 +17,19 @@ ShareIt =
         'appId': null
         'version': 'v2.3'
         'description': ''
+        'buttonText': 'Share on Facebook'
       twitter:
         'description': ''
+        'buttonText': 'Share on Twitter'
       googleplus:
         'description': ''
+        'buttonText': 'Share on Google+'
       pinterest:
         'description': ''
+        'buttonText': 'Share on Pinterest'
       instagram:
         'description': ''
+        'buttonText': 'Share on Instagram'
     siteOrder: []
     classes: "large btn"
     iconOnly: false
@@ -41,6 +46,12 @@ ShareIt =
     applyColors: -> ShareIt.settings.applyColors
     faSize: -> ShareIt.settings.faSize
     faClass: -> ShareIt.settings.faClass and "-#{ShareIt.settings.faClass}" or ''
+    buttonText: ->
+      facebook: ShareIt.settings.sites.facebook.buttonText
+      twitter: ShareIt.settings.sites.twitter.buttonText
+      googleplus: ShareIt.settings.sites.googleplus.buttonText
+      pinterest: ShareIt.settings.sites.pinterest.buttonText
+      instagram: ShareIt.settings.sites.instagram.buttonText
 
   init: (params) ->
     @configure params if params?
