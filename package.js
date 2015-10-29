@@ -1,7 +1,7 @@
 Package.describe({
   summary: 'A meteor package that makes social sharing easy',
   git: 'https://github.com/dolgarev/meteor-shareit',
-  version: '1.0.2',
+  version: '1.0.3',
   name: "liberation:shareit"
 });
 
