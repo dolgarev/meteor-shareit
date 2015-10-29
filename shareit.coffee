@@ -26,7 +26,7 @@ ShareIt =
       instagram:
         'description': ''
     siteOrder: []
-    classes: "large btn"
+    classes: 'large btn'
     iconOnly: false
     faSize: ''
     faClass: ''
