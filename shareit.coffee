@@ -42,10 +42,10 @@ ShareIt =
 
   helpers:
     classes: -> ShareIt.settings.classes
-    showText: -> not ShareIt.settings.iconOnly
-    applyColors: -> ShareIt.settings.applyColors
+    showText: (text) -> not ShareIt.settings.iconOnly and " #{text}"
+    applyColors: (cssClasses) -> ShareIt.settings.applyColors and " #{cssClasses}"
     faSize: -> ShareIt.settings.faSize
-    faClass: -> ShareIt.settings.faClass and "-#{ShareIt.settings.faClass}" or ''
+    faClass: -> ShareIt.settings.faClass and "-#{ShareIt.settings.faClass}"
     buttonText: ->
       facebook: ShareIt.settings.sites.facebook.buttonText
       twitter: ShareIt.settings.sites.twitter.buttonText

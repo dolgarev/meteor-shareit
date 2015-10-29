@@ -22,6 +22,26 @@ if (Meteor.isClient) {
 } 
 ```
 
+**UPD.**
+Now you can customize button text for each social network. Thank you, @briansayles!
+
+```javascript
+if (Meteor.isClient) {
+  ShareIt.init({
+    siteOrder: ['facebook', 'twitter'],
+    sites: {
+      'facebook': {
+        'appId': 'YOUR_APPLICATION_ID',
+        'version': 'v2.3'
+        'buttonText': 'Share on FB'
+      }
+    },
+    iconOnly: true,
+    applyColors: false
+  });
+} 
+```
+
 ---
 
 I've built social sharing buttons a few times and decided it was time to extract it to a package! The goal of this package is to do a few things:

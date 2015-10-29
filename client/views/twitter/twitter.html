@@ -1,5 +1,3 @@
 <template name="shareit_twitter">
-  <a href="https://twitter.com/intent/tweet?url={{url}}&text={{text}}" class="{{classes}}{{#if applyColors}} shareit-twitter-colors{{/if}} tw-share">
-    <i class="fa fa-twitter{{faClass}} {{faSize}}"></i>{{#if showText}} {{buttonText.twitter}}{{/if}}
-  </a>
+  <a href="https://twitter.com/intent/tweet?url={{url}}&text={{text}}" class="{{classes}}{{applyColors 'shareit-twitter-colors'}} tw-share"><i class="fa fa-twitter{{faClass}} {{faSize}}"></i>{{showText buttonText.twitter}}</a>
 </template>
