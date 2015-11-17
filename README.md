@@ -172,6 +172,8 @@ If you have valid facebook app id, we recommend you configure it to use Facebook
     });
 ```
 
+## Spiderable
+For a website to be well-indexed by search engines, it is necessary to add one of the spiderable packagke. liberation:sharit used to contain such a dependency but looking at the variety of such packages, it is now bring-your-own. Feel free to choose within "spiderable" (original), ongoworks:spiderable (Docker-friendly with phantomjs), lufrai:spiderable2 (Docker-friendly with zombie browser).
 
 ## Roadmap
 
