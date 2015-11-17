@@ -10,7 +10,6 @@ Package.onUse(function(api) {
   api.use(['coffeescript', 'templating', 'underscore', 'jquery'], 'client');
   api.use(['fortawesome:fontawesome@4.2.0'], 'client');
 
-  api.imply('spiderable', ['client', 'server']);
   api.addFiles([
     'shareit.coffee',
     'client/views/social.html',
