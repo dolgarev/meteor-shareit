@@ -10,11 +10,11 @@ Template.shareit_googleplus.onRendered ->
     # Schema tags
     #
     description = data.googleplus?.description || data.excerpt || data.description || data.summary
-    url = data.url || location.origin + location.pathname
+    url = data.url || Shareit.location.origin() + Shareit.location.pathname()
     title = data.title
     itemtype = data.googleplus?.itemtype || 'Article'
     $('html').attr('itemscope', '').attr('itemtype', "http://schema.org/#{itemtype}")
-    $('<meta>', { itemprop: 'name', content: location.hostname }).appendTo 'head'
+    $('<meta>', { itemprop: 'name', content: Shareit.location.hostname() }).appendTo 'head'
     $('<meta>', { itemprop: 'url', content: url }).appendTo 'head'
     $('<meta>', { itemprop: 'description', content: description }).appendTo 'head'
 
@@ -25,7 +25,7 @@ Template.shareit_googleplus.onRendered ->
         img = data.thumbnail
     if img
       if not /^http(s?):\/\/+/.test(img)
-        img = location.origin + img
+        img = Shareit.location.origin() + img
 
     $('<meta>', { itemprop: 'image', content: img }).appendTo 'head'
     #

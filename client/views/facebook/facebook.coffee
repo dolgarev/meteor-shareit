@@ -12,10 +12,10 @@ Template.shareit_facebook.onRendered ->
     # OpenGraph tags
     #
     $('<meta>', { property: 'og:type', content: 'article' }).appendTo 'head'
-    $('<meta>', { property: 'og:site_name', content: location.hostname }).appendTo 'head'
+    $('<meta>', { property: 'og:site_name', content: ShareIt.location.hostname() }).appendTo 'head'
 
     url = data.facebook?.url || data.url
-    url = if _.isString(url) and url.length then url else location.href
+    url = if _.isString(url) and url.length then url else ShareIt.location.href()
     $('<meta>', { property: 'og:url', content: url }).appendTo 'head'
 
     title = data.facebook?.title || data.title
@@ -46,7 +46,7 @@ Template.shareit_facebook.onRendered ->
       img = if _.isFunction data.thumbnail then data.thumbnail() else data.thumbnail
 
       if _.isString(img) and img.length
-        img = location.origin + img unless /^http(s?):\/\/+/.test(img)
+        img = ShareIt.location.origin() + img unless /^http(s?):\/\/+/.test(img)
         $('<meta>', { property: 'og:image', content: img }).appendTo 'head'
       else
         img = ''

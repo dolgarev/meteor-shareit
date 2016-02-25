@@ -5,7 +5,7 @@ Template.shareit_pinterest.onRendered ->
     template = Template.instance()
     data = Template.currentData()
 
-    preferred_url = data.url || location.origin + location.pathname
+    preferred_url = data.url || ShareIt.location.origin() + ShareIt.location.pathname()
     url = encodeURIComponent preferred_url
     description = encodeURIComponent data.pinterest?.description || data.description
 
