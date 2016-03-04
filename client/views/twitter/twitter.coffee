@@ -13,7 +13,7 @@ Template.shareit_twitter.onRendered ->
     #$('<meta>', { property: 'twitter:site', content: '' }).appendTo 'head'
 
     url = data.twitter?.url || data.url
-    url = if _.isString(url) and url.length then url else location.origin + location.pathname
+    url = if _.isString(url) and url.length then url else ShareIt.location.origin() + ShareIt.location.pathname()
     $('<meta>', { property: 'twitter:url', content: url }).appendTo 'head'
 
     author = data.twitter?.author || data.author
@@ -37,7 +37,7 @@ Template.shareit_twitter.onRendered ->
     if data.thumbnail?
       img = if _.isFunction data.thumbnail then data.thumbnail() else data.thumbnail  
       if _.isString(img) and img.length
-        img = location.origin + img unless /^http(s?):\/\/+/.test(img)          
+        img = ShareIt.location.origin() + img unless /^http(s?):\/\/+/.test(img)          
         $('<meta>', { property: 'twitter:image', content: img }).appendTo 'head'
       else
         img = ''

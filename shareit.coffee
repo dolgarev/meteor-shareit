@@ -9,6 +9,18 @@ script_loader = (url, id, d = document) ->
 
 
 ShareIt =
+  # plain location is wrong on spiderable.
+  location:
+    host: Meteor.bindEnvironment () ->
+      Meteor.absoluteUrl().replace(/^http:\/\/|^https:\/\//, '').replace(/\/$/, '')
+    href: Meteor.bindEnvironment () -> 
+      Meteor.absoluteUrl().replace(/\/$/, '') + location.pathname
+    origin: Meteor.bindEnvironment () -> 
+      Meteor.absoluteUrl().replace(/\/$/, '')
+    pathname: Meteor.bindEnvironment () -> 
+      location.pathname # "/showcontent/awjdaf2384" whatever the server location
+    hostname: Meteor.bindEnvironment () -> 
+      Meteor.absoluteUrl().replace(/^http:\/\/|^https:\/\//, '').replace(/\/$/, '')
   settings:
     autoInit: true
     buttons: 'responsive'
